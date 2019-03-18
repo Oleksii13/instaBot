@@ -30,6 +30,7 @@ const instagram = {
 	login: async (req, res) => {
 
 
+
 		await instagram.page.goto(BASE_URL, { waitUntil: 'networkidle2' });
 
 		let loginButton = await instagram.page.$x('//a[contains(text(), "Log in")]');
@@ -54,7 +55,7 @@ const instagram = {
 
 		loginButton = await instagram.page.$x('//div//div//button[contains(text(), "Not Now")]');
 		let dbModel = await loginButton[0].click()
-		res.json(dbModel)
+		// res.json(dbModel)
 		await instagram.page.waitFor(1000);
 
 

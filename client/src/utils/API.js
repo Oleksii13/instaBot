@@ -8,9 +8,9 @@ export default {
 
     },
 
-    login: () => {
+    login: (username, password) => {
         return (
-            axios.post("/api/login")
+            axios.post("/api/login", { username, password })
         )
     },
 

@@ -17,43 +17,43 @@ class App extends Component {
     likeTag: "webdeveloper",
     followQuant: 3,
     unfollowQuant: 3
-  };
+  }
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  };
+  }
 
   Start = () => {
     API.start()
       .then(res => console.log(res))
       .catch(err => console.log(err));
 
-  };
+  }
 
   Login = async () => {
     const res = await API.login(this.state.username, this.state.password);
     console.log(res)
-  };
+  }
 
 
   Like = async () => {
     const res = await API.like(this.state.likeTag, this.state.likeQuant);
     console.log(res)
-  };
+  }
 
   Follow = async () => {
     console.log("press");
     const res = await API.follow(this.state.followQuant);
     console.log(res);
-  };
+  }
 
   Unfollow = async () => {
     const res = await API.unfollow(this.state.unfollowQuant);
     console.log(res)
-  };
+  }
 
 
 
