@@ -26,10 +26,9 @@ class App extends Component {
     });
   }
 
-  Start = () => {
-    API.start()
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+  Start = async () => {
+    const res = API.start()
+    console.log(res);
 
   }
 
@@ -45,7 +44,6 @@ class App extends Component {
   }
 
   Follow = async () => {
-    console.log("press");
     const res = await API.follow(this.state.followQuant);
     console.log(res);
   }

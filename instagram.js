@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const cron = require('node-cron');
+const JSON = require('circular-json');
 
 const BASE_URL = 'https://www.instagram.com/';
 
@@ -17,11 +19,33 @@ const instagram = {
 			headless: false,
 			args: ['--no-sandbox', '--disable-setuid-sandbox'],
 		});
-		instagram.page = await instagram.browser.newPage();
-		const some = await instagram.page.goto(BASE_URL);
 
-		// console.log(some._status);
-		return some._status
+		try {
+			instagram.page = await instagram.browser.newPage();
+			var respons = await instagram.page.goto(BASE_URL);
+			res.json(JSON.stringify(respons))
+		} catch (err) {
+			console.log(err);
+		}
+
+
+
+
+		// Promise.all([
+		// 	page.setExtraHTTPHeaders(…),
+		// 	page.setUserAgent(…),
+		// 	page.setViewport(…)
+		// ]).then(() => {
+		// 	// page is ready
+		// });
+		// console.log("I am done at")
+		// let task = cron.schedule("* * * * * *", () => {
+		// 	console.log("done from schedule");
+		// })
+		// task.stop();
+
+
+
 
 
 
@@ -50,12 +74,13 @@ const instagram = {
 
 		loginButton = await instagram.page.$x('//button//div[contains(text(), "Log in")]');
 		await loginButton[0].click();
+		// res.json(clickLogin);
 
 		await instagram.page.waitFor(2000);
 
 		loginButton = await instagram.page.$x('//div//div//button[contains(text(), "Not Now")]');
-		let dbModel = await loginButton[0].click()
-		// res.json(dbModel)
+		await loginButton[0].click()
+
 		await instagram.page.waitFor(1000);
 
 
@@ -65,11 +90,13 @@ const instagram = {
 
 	},
 
-	likeTagsProcesses: async (tag, quant) => {
-		;
-		tag = tag.replace(/\s/g, '');
+	likeTagsProcesses: async (req, res) => {
+		var quant = req.body.quant;
+
+
+		// .replace(/\s/g, '');
 		// for (let tag of tags) {
-		await instagram.page.goto(TAG_URL(tag), { waitUntil: 'networkidle2' });
+		await instagram.page.goto(TAG_URL(req.body.tag), { waitUntil: 'networkidle2' });
 		await instagram.page.waitFor(1000);
 
 		let posts = await instagram.page.$$('article > div:nth-child(3) img[decoding="auto"]');
@@ -78,6 +105,7 @@ const instagram = {
 		for (let i = 0; i < quant; i++) {
 
 			let post = posts[i];
+			console.log(post);
 
 			await post.click();
 
@@ -89,6 +117,7 @@ const instagram = {
 			if (isLikable) {
 
 				await instagram.page.click('span[aria-label="Like"]')
+
 			}
 
 			await instagram.page.waitFor(3000);
@@ -106,7 +135,8 @@ const instagram = {
 
 	},
 
-	followPeople: async (quant) => {
+	followPeople: async (req, res) => {
+		let quant = req.body.quant;
 
 		await instagram.page.goto(PEOPLE_URL, { waitUntil: 'networkidle2' });
 		await instagram.page.waitFor(1000);
@@ -117,14 +147,17 @@ const instagram = {
 
 		for (let i = 0; i < quant; i++) {
 			await people[i].click();
+
 			await instagram.page.waitFor(5000);
+
 		}
 
 
 
 	},
 
-	unfollowPeople: async (quant) => {
+	unfollowPeople: async (req, res) => {
+		let quant = req.body.quant
 
 		await instagram.page.goto(UNFOLLOW_PEOPLE, { waitUntil: 'networkidle2' });
 		await instagram.page.waitFor(1000);
@@ -141,8 +174,9 @@ const instagram = {
 		for (let i = 0; i < quant; i++) {
 			await unfollow[i].click();
 			await instagram.page.waitFor(5000);
-			let unfollowLast = await instagram.page.$x('//button[contains (text(), "Unfollow")]');
-			await unfollowLast[0].click();
+			let unfollowPerson = await instagram.page.$x('//button[contains (text(), "Unfollow")]');
+			await unfollowPerson[0].click();
+
 		}
 
 
