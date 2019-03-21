@@ -27,28 +27,6 @@ const instagram = {
 		} catch (err) {
 			console.log(err);
 		}
-
-
-
-
-		// Promise.all([
-		// 	page.setExtraHTTPHeaders(…),
-		// 	page.setUserAgent(…),
-		// 	page.setViewport(…)
-		// ]).then(() => {
-		// 	// page is ready
-		// });
-		// console.log("I am done at")
-		// let task = cron.schedule("* * * * * *", () => {
-		// 	console.log("done from schedule");
-		// })
-		// task.stop();
-
-
-
-
-
-
 	},
 
 	login: async (req, res) => {
