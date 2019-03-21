@@ -1,4 +1,4 @@
-const inst = require('../instagram');
+const inst = require('../controllers/instagram');
 const router = require("express").Router();
 
 router.get('/start', inst.initialize)

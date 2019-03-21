@@ -27,8 +27,8 @@ class App extends Component {
   }
 
   Start = async () => {
-    const res = API.start()
-    console.log(res);
+    const res = await API.start()
+    await console.log(res);
 
   }
 

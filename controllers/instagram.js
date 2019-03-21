@@ -16,7 +16,7 @@ const instagram = {
 
 	initialize: async (req, res) => {
 		instagram.browser = await puppeteer.launch({
-			headless: false,
+			// headless: false,
 			args: ['--no-sandbox', '--disable-setuid-sandbox'],
 		});
 
@@ -52,38 +52,44 @@ const instagram = {
 	},
 
 	login: async (req, res) => {
+		try {
 
 
+			await instagram.page.goto(BASE_URL, { waitUntil: 'networkidle2' });
 
-		await instagram.page.goto(BASE_URL, { waitUntil: 'networkidle2' });
-
-		let loginButton = await instagram.page.$x('//a[contains(text(), "Log in")]');
-
-
-		await loginButton[0].click();
-
-		// await instagram.page.waitForNavigation({ waitUntil: 'networkidle2' });
-
-		await instagram.page.waitFor(1000);
-
-		await instagram.page.type('input[name = "username"]', req.body.username, { delay: 50 });
-		await instagram.page.type('input[name = "password"]', req.body.password, { delay: 50 });
-
-		await instagram.page.waitFor(1000);
+			let loginButton = await instagram.page.$x('//a[contains(text(), "Log in")]');
 
 
-		loginButton = await instagram.page.$x('//button//div[contains(text(), "Log in")]');
-		await loginButton[0].click();
-		// res.json(clickLogin);
+			await loginButton[0].click();
 
-		await instagram.page.waitFor(2000);
+			// await instagram.page.waitForNavigation({ waitUntil: 'networkidle2' });
 
-		loginButton = await instagram.page.$x('//div//div//button[contains(text(), "Not Now")]');
-		await loginButton[0].click()
+			await instagram.page.waitFor(1000);
 
-		await instagram.page.waitFor(1000);
+			await instagram.page.type('input[name = "username"]', req.body.username, { delay: 50 });
+			await instagram.page.type('input[name = "password"]', req.body.password, { delay: 50 });
 
 
+			await instagram.page.waitFor(1000);
+
+
+			loginButton = await instagram.page.$x('//button//div[contains(text(), "Log in")]');
+			await loginButton[0].click();
+
+
+			// res.json(clickLogin);
+
+			await instagram.page.waitFor(2000);
+
+
+			loginButton = await instagram.page.$x('//div//div//button[contains(text(), "Not Now")]');
+			await loginButton[0].click()
+
+			await instagram.page.waitFor(1000);
+
+		} catch (err) {
+			res.send(err);
+		}
 		// loginButton = await instagram.page.$x('//button//div[contains(text(), "New Posts")]');
 		// await loginButton[0].click();
 
