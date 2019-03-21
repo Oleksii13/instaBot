@@ -25,7 +25,7 @@ const instagram = {
 			var respons = await instagram.page.goto(BASE_URL);
 			res.json(JSON.stringify(respons))
 		} catch (err) {
-			console.log(err);
+			res.send(err);
 		}
 	},
 
@@ -55,15 +55,17 @@ const instagram = {
 			await loginButton[0].click();
 
 
-			// res.json(clickLogin);
+
 
 			await instagram.page.waitFor(2000);
 
 
 			loginButton = await instagram.page.$x('//div//div//button[contains(text(), "Not Now")]');
-			await loginButton[0].click()
+			let respons = await loginButton[0].click()
 
 			await instagram.page.waitFor(1000);
+
+			res.json(JSON.stringify(respons))
 
 		} catch (err) {
 			res.send(err);
@@ -135,6 +137,8 @@ const instagram = {
 			await instagram.page.waitFor(5000);
 
 		}
+
+		res.json(JSON.stringify(people))
 
 
 
