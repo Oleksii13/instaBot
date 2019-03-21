@@ -135,12 +135,12 @@ const instagram = {
 			for (let i = 0; i < quant; i++) {
 				await people[i].click();
 
-				await instagram.page.waitFor(5000);
-				res.json(JSON.stringify(people[i]))
+				await instagram.page.waitFor(1000);
+
 
 			}
 
-			res.json(JSON.stringify(people))
+			await res.json(JSON.stringify(people))
 		} catch (err) {
 			res.send(err);
 		}
