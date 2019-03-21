@@ -122,13 +122,13 @@ const instagram = {
 	},
 
 	followPeople: async (req, res) => {
-		let quant = req.body.quant;
+		var quant = req.body.quant;
 
 		try {
 			await instagram.page.goto(PEOPLE_URL, { waitUntil: 'networkidle2' });
 			await instagram.page.waitFor(1000);
 
-			let people = await instagram.page.$x('//button[contains (text(), "Follow")]');
+			var people = await instagram.page.$x('//button[contains (text(), "Follow")]');
 
 			// chaneg the amount of people
 
@@ -136,6 +136,7 @@ const instagram = {
 				await people[i].click();
 
 				await instagram.page.waitFor(5000);
+				res.json(JSON.stringify(people[i]))
 
 			}
 
