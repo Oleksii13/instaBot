@@ -5,7 +5,8 @@
   "main": "instagram.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postbuild": "react-snap"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,14 @@
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
     "puppeteer": "^1.13.0"
+  },
+  "reactSnap": {
+    "cacheAjaxRequests": true,
+    "inlineCss": true,
+    "http2PushManifest": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }
