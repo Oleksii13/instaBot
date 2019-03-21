@@ -16,7 +16,7 @@ const instagram = {
 
 	initialize: async (req, res) => {
 		instagram.browser = await puppeteer.launch({
-			headless: false,
+			// headless: false,
 			args: ['--no-sandbox', '--disable-setuid-sandbox'],
 		});
 
