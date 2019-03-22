@@ -1,4 +1,4 @@
-
+const mongoose = require("mongoose");
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
@@ -20,23 +20,9 @@ app.get("*", function (req, res) {
 	res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-
-
-// (async () => {
-
-// 	await ig.initialize();
-
-// 	await ig.login(USERNAME_L, PASSWORD);
-
-// 	// await ig.likeTagsProcesses(['programmers', 'webdevelopers']);
-
-// 	//await ig.followPeople();
-
-// 	await ig.unfollowPeople();
-
-// 	debugger;
-
-// })()
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userLogin", {
+	useNewUrlParser: true
+});
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}.`);
