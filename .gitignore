@@ -1,6 +1,6 @@
 /node_modules*
 .env*
-src/*
-public/*
-build/static/css/*.map
-build/static/js/*.map
+# src/*
+# public/*
+# build/static/css/*.map
+# build/static/js/*.map
