@@ -247,8 +247,8 @@ class Main extends Component {
                                             <h2>Log in to instagram page first</h2>
                                             <Label for="inputEmail4">Username</Label>
                                             <Input id="inputEmail4" type="text" placeholder="username" name="username" onChange={(this.handleChange)} />
-                                            <Label for="inputPassword4">Password</Label>
-                                            <Input type="password" placeholder="password" name="password" onChange={(this.handleChange)} id="inputPassword4" autoComplete="off" />
+                                            <Label for="some1">Password</Label>
+                                            <Input type="password" placeholder="password" name="password" onChange={(this.handleChange)} id="some1" autoComplete="off" />
                                             {
                                                 (logInMessage) ? (
                                                     <Alert color="info">{logInMessage} </Alert>
@@ -263,10 +263,10 @@ class Main extends Component {
                                 <Row>
                                     <Col>
                                         <FormGroup >
-                                            <Label for="inputEmail4">How many likes do you want to make?</Label>
-                                            <Input id="inputEmail4" type="number" placeholder="number of likes" name="likeQuant" onChange={(this.handleChange)} />
-                                            <Label for="inputPassword4">What the Hashtag do you want to search?</Label>
-                                            <Input type="text" placeholder="liked tag" name="likeTag" onChange={(this.handleChange)} id="inputPassword4" autoComplete="off" />
+                                            <Label for="inputEmail1">How many likes do you want to make?</Label>
+                                            <Input id="inputEmail1" type="number" placeholder="number of likes" name="likeQuant" onChange={(this.handleChange)} />
+                                            <Label for="some2">What the Hashtag do you want to search?</Label>
+                                            <Input type="text" placeholder="liked tag" name="likeTag" onChange={(this.handleChange)} id="some2" autoComplete="off" />
                                             {
                                                 (likeMessage) ? (
                                                     <Alert color="info">{likeMessage} </Alert>
@@ -280,8 +280,8 @@ class Main extends Component {
                                     <Col>
                                         <FormGroup >
 
-                                            <Label for="inputPassword4">How many people do you want to follow?</Label>
-                                            <Input type="number" placeholder="follow" name="followQuant" onChange={(this.handleChange)} id="inputPassword4" autoComplete="off" />
+                                            <Label for="some3">How many people do you want to follow?</Label>
+                                            <Input type="number" placeholder="follow" name="followQuant" onChange={(this.handleChange)} id="some3" autoComplete="off" />
                                             {
                                                 (followMessage) ? (
                                                     <Alert color="info">{followMessage} </Alert>
@@ -295,8 +295,8 @@ class Main extends Component {
                                     <Col>
                                         <FormGroup >
 
-                                            <Label for="inputPassword4">Tell me amout of people I should Unfollow!</Label>
-                                            <Input type="number" placeholder="unfollow" name="unfollowQuant" onChange={(this.handleChange)} id="inputPassword4" autoComplete="off" />
+                                            <Label for="some5">Tell me amout of people I should Unfollow!</Label>
+                                            <Input type="number" placeholder="unfollow" name="unfollowQuant" onChange={(this.handleChange)} id="some5" autoComplete="off" />
                                             {
                                                 (unfollowMessage) ? (
                                                     <Alert color="info">{unfollowMessage} </Alert>
