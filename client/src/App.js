@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import "./assets/scss/blk-design-system-react.scss";
 import "./assets/css/nucleo-icons.css";
+import "./assets/demo/demo.css";
 
 
 

@@ -10268,9 +10268,9 @@ hr {
   .icon i, .icon svg {
     font-size: auto-0.75; }
 
-.icon + .icon-text {
+/* .icon + .icon-text {
   padding-left: 1rem;
-  width: calc(100% - auto - 1); }
+  width: calc(100% - auto - 1); } */
 
 .icon-xl {
   width: 5rem;
@@ -10278,8 +10278,8 @@ hr {
   .icon-xl i, .icon-xl svg {
     font-size: 4.25rem; }
 
-.icon-xl + .icon-text {
-  width: calc(100% - $icon-size-xl - 1); }
+/* .icon-xl + .icon-text {
+  width: calc(100% - $icon-size-xl - 1); } */
 
 .icon-lg {
   width: 3.7rem;
@@ -10287,8 +10287,8 @@ hr {
   .icon-lg i, .icon-lg svg {
     font-size: 2.95rem; }
 
-.icon-lg + .icon-text {
-  width: calc(100% - $icon-size-lg - 1); }
+/* .icon-lg + .icon-text {
+  width: calc(100% - $icon-size-lg - 1); } */
 
 .icon-sm {
   width: 1.875rem;
@@ -10296,8 +10296,8 @@ hr {
   .icon-sm i, .icon-sm svg {
     font-size: 1.125rem; }
 
-.icon-sm + .icon-text {
-  width: calc(100% - $icon-size-sm - 1); }
+/* .icon-sm + .icon-text {
+  width: calc(100% - $icon-size-sm - 1); } */
 
 .icon-shape {
   padding: 12px;
