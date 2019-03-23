@@ -1,5 +1,6 @@
 /node_modules*
 .env*
+client/node_modules
 # src/*
 # public/*
 # build/static/css/*.map
