@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+
+
 import { Link } from "react-router-dom"
 import 'whatwg-fetch';
 import { Redirect } from 'react-router';
@@ -130,30 +133,6 @@ class Signup extends Component {
 
         if (!signed) {
             return (
-                // <div>
-                //     <Navbar />
-                //     {
-                //         (signUpError) ? (
-                //             <p>{signUpError}</p>
-                //         ) : (null)
-                //     }
-                //     <p>Sign Up</p>
-                //     <input
-                //         type="email"
-                //         placeholder="Email"
-                //         value={signUpEmail}
-                //         onChange={this.onTextboxChangeSignUpEmail}
-                //     /><br />
-                //     <input
-                //         type="password"
-                //         placeholder="Password"
-                //         value={signUpPassword}
-                //         onChange={this.onTextboxChangeSignUpPassword}
-                //     /><br />
-                //     <button onClick={this.onSignUp}>Sign Up</button>
-                //     <button><a href="/" onClick={this.onSignIn}>Sign In</a></button>
-                //     <Footer />
-                // </div>
                 <div>
                     <Navbar />
                     <div>

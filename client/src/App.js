@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import "./assets/scss/blk-design-system-react.scss";
+import "./assets/css/nucleo-icons.css";
 
 
 

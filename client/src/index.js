@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
-import "./assets/css/nucleo-icons.css";
-import "./assets/scss/blk-design-system-react.scss?v=1.0.0";
-import "./assets/demo/demo.css";
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
